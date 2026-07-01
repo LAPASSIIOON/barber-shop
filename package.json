@@ -1,0 +1,15 @@
+{
+  "name": "blade-and-co-barbershop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Premium barbershop booking MVP — Blade & Co, Kuwait",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
