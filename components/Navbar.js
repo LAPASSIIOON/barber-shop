@@ -8,10 +8,10 @@ export default function Navbar() {
     return `
       <nav class="navbar" id="navbar">
         <div class="container">
-          <a href="#hero" class="nav-logo">
+          <div class="nav-logo" style="display:none">
             <div class="nav-logo-icon" aria-hidden="true">&#9986;</div>
             Blade <span style="color:var(--white);">&amp; Co</span>
-          </a>
+          </div>
           <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" type="button">
             <i class="fas fa-bars" aria-hidden="true"></i>
           </button>
