@@ -21,19 +21,19 @@ const IMAGES = {
   serviceRoyalShave: shaveImg,
   serviceKids: kidsImg,
 
-  // --- Transformations ---
-  transformationFade: "https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=700&q=80",
-  transformationBeard: "https://images.unsplash.com/photo-1621607512214-68297480165e?w=700&q=80",
-  transformationPompadour: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=700&q=80",
-  transformationRoyalShave: "https://images.unsplash.com/photo-fNXJwZY1EKk?w=700&q=80",
+  // --- Transformations (local — same photos as services) ---
+  transformationFade: comboImg,
+  transformationBeard: beardImg,
+  transformationPompadour: haircutImg,
+  transformationRoyalShave: shaveImg,
 
-  // --- Gallery ---
-  galleryFade: "https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&q=80",
-  galleryPompadour: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80",
-  galleryBeard: "https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&q=80",
-  galleryRoyalShave: "https://images.unsplash.com/photo-fNXJwZY1EKk?w=800&q=80",
-  galleryCombo: "https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&q=80",
-  galleryHotTowel: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80",
+  // --- Gallery (local where available) ---
+  galleryFade: comboImg,
+  galleryPompadour: haircutImg,
+  galleryBeard: beardImg,
+  galleryRoyalShave: shaveImg,
+  galleryCombo: comboImg,
+  galleryHotTowel: washImg,
   galleryTools: "https://images.unsplash.com/photo-1585747861115-8ddb1e57c1c5?w=800&q=80",
   galleryClipper: "https://images.unsplash.com/photo-1593702288056-2c160df0c1b4?w=800&q=80",
 

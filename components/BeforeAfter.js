@@ -8,7 +8,10 @@ export default function BeforeAfter() {
       <div class="transformation-card fade-in">
         <div class="transformation-badge">${t('transformations.label')}</div>
         <div class="transformation-image-wrapper">
-          <img src="${tfm.image}" alt="${tr(tfm, 'title')}" loading="lazy" />
+          <img src="${tfm.image}" alt="${tr(tfm, 'title')}" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'" />
+          <div class="transformation-fallback" aria-hidden="true">
+            <i class="fas fa-cut"></i>
+          </div>
           <div class="transformation-overlay">
             <div class="transformation-label">
               <span class="transformation-before">${getLang() === 'ar' ? 'قبل' : 'BEFORE'}</span>
