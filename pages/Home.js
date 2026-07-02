@@ -3,6 +3,7 @@ import Hero from '../components/Hero.js';
 import Services from '../components/Services.js';
 import BarberProfiles from '../components/BarberProfiles.js';
 import BusinessPain from '../components/BusinessPain.js';
+import BeforeAfter from '../components/BeforeAfter.js';
 import BookingForm from '../components/BookingForm.js';
 import Gallery from '../components/Gallery.js';
 import Testimonials from '../components/Testimonials.js';
@@ -15,6 +16,7 @@ export default function Home() {
     Hero(),
     Services(),
     BarberProfiles(),
+    BeforeAfter(),
     BusinessPain(),
     BookingForm(),
     Gallery(),

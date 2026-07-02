@@ -38,6 +38,26 @@
   max-width: 700px;
 }
 
+.hero-pain-hook {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(212, 168, 83, 0.12);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.3px;
+  margin-bottom: 16px;
+}
+
+.hero-pain-hook i {
+  color: var(--cyan);
+  font-size: 0.85rem;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -167,6 +187,11 @@
 
   .hero-actions {
     justify-content: center;
+  }
+
+  .hero-pain-hook {
+    margin: 0 auto 16px;
+    width: fit-content;
   }
 
   .hero-badge {

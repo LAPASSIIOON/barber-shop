@@ -6,12 +6,18 @@ export default function Services() {
   const render = () => {
     const cards = services.map(s => `
       <div class="service-card fade-in">
-        <img
-          src="${s.image}"
-          alt="${tr(s, 'name')}"
-          class="service-card-image"
-          loading="lazy"
-        />
+        <div class="service-card-image-wrapper">
+          <img
+            src="${s.image}"
+            alt="${tr(s, 'name')}"
+            class="service-card-image"
+            loading="lazy"
+            onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'"
+          />
+          <div class="service-card-fallback" aria-hidden="true">
+            <i class="fas fa-cut"></i>
+          </div>
+        </div>
         <div class="service-card-body">
           <span class="service-card-category">${s.category}</span>
           <h3>${tr(s, 'name')}</h3>

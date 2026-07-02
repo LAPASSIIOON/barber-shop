@@ -1,3 +1,5 @@
+import IMAGES from './service-images.js';
+
 export const services = [
   {
     id: 1,
@@ -8,7 +10,7 @@ export const services = [
     price: "KD 12",
     duration: "45 min",
     durationMinutes: 45,
-    image: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80",
+    image: IMAGES.serviceHaircut,
     category: "haircut"
   },
   {
@@ -20,7 +22,7 @@ export const services = [
     price: "KD 8",
     duration: "30 min",
     durationMinutes: 30,
-    image: "https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&q=80",
+    image: IMAGES.serviceBeard,
     category: "grooming"
   },
   {
@@ -32,7 +34,7 @@ export const services = [
     price: "KD 18",
     duration: "75 min",
     durationMinutes: 75,
-    image: "https://images.unsplash.com/photo-1567894340315-735d7c361db7?w=600&q=80",
+    image: IMAGES.serviceCombo,
     category: "combo"
   },
   {
@@ -44,7 +46,7 @@ export const services = [
     price: "KD 6",
     duration: "25 min",
     durationMinutes: 25,
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80",
+    image: IMAGES.serviceWash,
     category: "treatment"
   },
   {
@@ -56,7 +58,7 @@ export const services = [
     price: "KD 10",
     duration: "40 min",
     durationMinutes: 40,
-    image: "https://images.unsplash.com/photo-1585747861115-8ddb1e57c1c5?w=600&q=80",
+    image: IMAGES.serviceRoyalShave,
     category: "grooming"
   },
   {
@@ -68,7 +70,7 @@ export const services = [
     price: "KD 7",
     duration: "30 min",
     durationMinutes: 30,
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    image: IMAGES.serviceKids,
     category: "haircut"
   }
 ];

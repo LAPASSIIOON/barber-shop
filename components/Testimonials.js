@@ -43,6 +43,10 @@ export default function Testimonials() {
             <i class="fas fa-check-circle" aria-hidden="true"></i>
             ${t('testimonials.trustBadge')}
           </div>
+          <div class="trust-badge retention-badge">
+            <i class="fas fa-sync-alt" aria-hidden="true"></i>
+            ${t('testimonials.retentionBadge')}
+          </div>
         </div>
       </section>
     `;

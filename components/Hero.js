@@ -1,10 +1,11 @@
 import { t } from '../utils/i18n.js';
+import IMAGES from '../data/service-images.js';
 
 export default function Hero() {
   const render = () => `
     <section class="hero" id="hero">
       <img
-        src="https://images.unsplash.com/photo-1585747861115-8ddb1e57c1c5?w=1920&q=80"
+        src="${IMAGES.heroBg}"
         alt="Luxury barber shop interior"
         class="hero-bg"
         loading="eager"
@@ -12,6 +13,10 @@ export default function Hero() {
       />
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content">
+        <div class="hero-pain-hook">
+          <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+          ${t('hero.painHook')}
+        </div>
         <div class="hero-badge">
           <i class="fas fa-cut" aria-hidden="true"></i>
           ${t('hero.badge')}

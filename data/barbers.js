@@ -1,3 +1,5 @@
+import IMAGES from './service-images.js';
+
 export const barbers = [
   {
     id: 1,
@@ -7,7 +9,7 @@ export const barbers = [
     specialtyAr: "تدرجات دقيقة وقص بالمقص",
     experience: "8 years",
     experienceAr: "8 سنوات",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    image: IMAGES.barberKarim,
     bio: "Master barber specializing in skin fades and classic scissor cuts. Trained in London & Dubai.",
     bioAr: "حلاق ماهر متخصص في التدرجات الدقيقة والقص الكلاسيكي بالمقص. تدرب في لندن ودبي."
   },
@@ -19,7 +21,7 @@ export const barbers = [
     specialtyAr: "تشذيب اللحية والحلاقة الملكية",
     experience: "6 years",
     experienceAr: "6 سنوات",
-    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&q=80",
+    image: IMAGES.barberYousef,
     bio: "Beard specialist with a steady hand for straight razor work. Awarded Best Barber Kuwait 2024.",
     bioAr: "متخصص في اللحية بيد ثابتة في أعمال موس الحلاقة. حاصل على جائزة أفضل حلاق في الكويت 2024."
   },
@@ -31,7 +33,7 @@ export const barbers = [
     specialtyAr: "تصاميم عصرية وعلاجات شعر",
     experience: "5 years",
     experienceAr: "5 سنوات",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
+    image: IMAGES.barberHassan,
     bio: "Trend-focused barber bringing the latest global styles to Kuwait. Expert in textured crops.",
     bioAr: "حلاق مواكب للموضة يجلب أحدث الصيحات العالمية إلى الكويت. خبير في القصات المدرجة."
   }
