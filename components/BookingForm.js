@@ -1,5 +1,20 @@
 import { services } from '../data/services.js';
+import { barbers } from '../data/barbers.js';
 import { observeFadeElements } from '../utils/observe.js';
+
+function generateTimeSlots() {
+  const slots = [];
+  for (let hour = 9; hour <= 20; hour++) {
+    for (let min = 0; min < 60; min += 30) {
+      const value = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+      const hour12 = hour === 0 ? 12 : (hour > 12 ? hour - 12 : hour);
+      const ampm = hour < 12 ? 'AM' : 'PM';
+      const display = `${hour12}:${min.toString().padStart(2, '0')} ${ampm}`;
+      slots.push({ value, display });
+    }
+  }
+  return slots;
+}
 
 function validateForm(fields) {
   const errors = {};
@@ -35,7 +50,16 @@ function clearAllErrors(fields) {
 export default function BookingForm() {
   const render = () => {
     const serviceOptions = services.map(s => `
-      <option value="${s.name}">${s.name} - ${s.price}</option>
+      <option value="${s.name}" data-duration="${s.durationMinutes}">${s.name} — ${s.price}</option>
+    `).join('');
+
+    const barberOptions = barbers.map(b => `
+      <option value="${b.name}">${b.name} — ${b.specialty}</option>
+    `).join('');
+
+    const timeSlots = generateTimeSlots();
+    const timeOptions = timeSlots.map(t => `
+      <option value="${t.value}">${t.display}</option>
     `).join('');
 
     const today = new Date().toISOString().split('T')[0];
@@ -45,27 +69,27 @@ export default function BookingForm() {
         <div class="container">
           <div class="section-header">
             <span class="section-label">Book Online</span>
-            <h2 class="section-title">Claim Your Spot</h2>
+            <h2 class="section-title">Reserve Your Slot</h2>
             <p class="section-subtitle">
-              No queues, no waiting. Book your preferred time and we'll have
-              everything ready for you.
+              Pick your barber, choose your service, and secure your time — all in under 30 seconds.
             </p>
           </div>
           <div class="booking-wrapper">
             <div class="booking-info fade-in">
-              <h2>Why Book Online?</h2>
+              <h2>Book in 30 Seconds</h2>
               <p>
                 Skip the wait and secure your preferred time slot. Our online
-                booking system ensures you get served exactly when you arrive.
+                booking system lets you pick your barber, choose your service,
+                and confirm in seconds.
               </p>
               <div class="booking-features">
                 <div class="booking-feature">
                   <i class="fas fa-clock" aria-hidden="true"></i>
-                  <span>No waiting — walk in, sit down, get served</span>
+                  <span>Book in under 30 seconds — no signup needed</span>
                 </div>
                 <div class="booking-feature">
                   <i class="fas fa-user-check" aria-hidden="true"></i>
-                  <span>Choose your preferred barber and service</span>
+                  <span>Pick your preferred barber from our expert team</span>
                 </div>
                 <div class="booking-feature">
                   <i class="fas fa-bell" aria-hidden="true"></i>
@@ -91,12 +115,24 @@ export default function BookingForm() {
                   <span class="error-text"></span>
                 </div>
                 <div class="form-group">
+                  <label for="bookBarber">Choose Your Barber</label>
+                  <select id="bookBarber" required>
+                    <option value="">Select a barber</option>
+                    ${barberOptions}
+                  </select>
+                  <span class="error-text"></span>
+                </div>
+                <div class="form-group">
                   <label for="bookService">Service</label>
                   <select id="bookService" required>
                     <option value="">Select a service</option>
                     ${serviceOptions}
                   </select>
-                  <span class="error-text"></span>
+                  <span class="error-text" id="serviceError"></span>
+                  <div class="service-duration-badge" id="serviceDurationBadge" style="display:none;">
+                    <i class="far fa-clock" aria-hidden="true"></i>
+                    <span id="serviceDurationText"></span>
+                  </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
@@ -106,13 +142,16 @@ export default function BookingForm() {
                   </div>
                   <div class="form-group">
                     <label for="bookTime">Preferred Time</label>
-                    <input type="time" id="bookTime" required />
+                    <select id="bookTime" required>
+                      <option value="">Select a time</option>
+                      ${timeOptions}
+                    </select>
                     <span class="error-text"></span>
                   </div>
                 </div>
                 <button class="btn-primary" id="bookSubmit" type="button">
                   <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                  Confirm Booking
+                  Reserve Your Slot
                 </button>
               </div>
               <div class="booking-success" id="bookingSuccess">
@@ -124,7 +163,7 @@ export default function BookingForm() {
                 </p>
                 <button class="btn-outline" id="bookAnother" type="button" style="margin-top:20px;">
                   <i class="fas fa-plus" aria-hidden="true"></i>
-                  Book Another
+                  Book Another Appointment
                 </button>
               </div>
             </div>
@@ -139,14 +178,29 @@ export default function BookingForm() {
     const form = document.getElementById('bookingForm');
     const success = document.getElementById('bookingSuccess');
     const bookAnother = document.getElementById('bookAnother');
+    const serviceSelect = document.getElementById('bookService');
+    const durationBadge = document.getElementById('serviceDurationBadge');
+    const durationText = document.getElementById('serviceDurationText');
 
     const fieldIds = {
       bookName: 'bookName',
       bookPhone: 'bookPhone',
+      bookBarber: 'bookBarber',
       bookService: 'bookService',
       bookDate: 'bookDate',
       bookTime: 'bookTime'
     };
+
+    serviceSelect.addEventListener('change', () => {
+      const selected = serviceSelect.options[serviceSelect.selectedIndex];
+      const duration = selected?.dataset?.duration;
+      if (duration) {
+        durationText.textContent = `Service duration: ${duration} minutes`;
+        durationBadge.style.display = 'flex';
+      } else {
+        durationBadge.style.display = 'none';
+      }
+    });
 
     submitBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -155,6 +209,7 @@ export default function BookingForm() {
       const fields = {
         bookName: document.getElementById('bookName').value,
         bookPhone: document.getElementById('bookPhone').value,
+        bookBarber: document.getElementById('bookBarber').value,
         bookService: document.getElementById('bookService').value,
         bookDate: document.getElementById('bookDate').value,
         bookTime: document.getElementById('bookTime').value
@@ -179,6 +234,7 @@ export default function BookingForm() {
         if (el) el.value = '';
         clearFieldError(id);
       });
+      durationBadge.style.display = 'none';
       success.classList.remove('show');
       form.style.display = 'block';
     });

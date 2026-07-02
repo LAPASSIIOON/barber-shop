@@ -1,0 +1,180 @@
+.business-pain {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.business-pain::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.business-pain-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pain-left {
+  position: relative;
+}
+
+.pain-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid rgba(255, 68, 68, 0.2);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ff4444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.pain-headline {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.pain-headline .highlight-pain {
+  color: #ff4444;
+}
+
+.pain-subtext {
+  font-size: 1.05rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.pain-solution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pain-solution-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.pain-solution-item i {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 212, 170, 0.12);
+  border-radius: 50%;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pain-solution-item span {
+  font-size: 0.92rem;
+  color: var(--gray-200);
+  line-height: 1.6;
+}
+
+.pain-right {
+  background: var(--dark-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  text-align: center;
+}
+
+.pain-result-icon {
+  font-size: 3rem;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+
+.pain-right h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.pain-right > p {
+  color: var(--gray-300);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.pain-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.pain-metric {
+  padding: 16px 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+}
+
+.pain-metric h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.pain-metric p {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pain-right .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .business-pain-wrapper {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .pain-headline {
+    font-size: 1.7rem;
+  }
+
+  .pain-right {
+    padding: 28px 20px;
+  }
+
+  .pain-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .pain-metric h4 {
+    font-size: 1.1rem;
+  }
+}

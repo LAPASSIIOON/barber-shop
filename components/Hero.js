@@ -25,25 +25,25 @@ export default function Hero() {
         <div class="hero-actions">
           <a href="#booking" class="btn-primary">
             <i class="fas fa-calendar-check" aria-hidden="true"></i>
-            Book Your Appointment
+            Reserve Your Slot
           </a>
           <a href="#services" class="btn-outline">
-            Explore Services
+            Book in 30 Seconds
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <h3>5K+</h3>
+            <h3>1,200+</h3>
             <p>Happy Clients</p>
-          </div>
-          <div class="hero-stat">
-            <h3>6+</h3>
-            <p>Services</p>
           </div>
           <div class="hero-stat">
             <h3>4.9</h3>
             <p>Rating</p>
+          </div>
+          <div class="hero-stat">
+            <h3>6</h3>
+            <p>Expert Barbers</p>
           </div>
         </div>
       </div>

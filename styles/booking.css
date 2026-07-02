@@ -131,6 +131,23 @@
   color: var(--white);
 }
 
+.service-duration-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: rgba(0, 212, 170, 0.08);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--cyan);
+}
+
+.service-duration-badge i {
+  font-size: 0.8rem;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

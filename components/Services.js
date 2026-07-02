@@ -40,6 +40,13 @@ export default function Services() {
           <div class="services-grid">
             ${cards}
           </div>
+          <div class="services-cta fade-in">
+            <p>Ready for a fresh look?</p>
+            <a href="#booking" class="btn-primary">
+              <i class="fas fa-calendar-check" aria-hidden="true"></i>
+              Book in 30 Seconds
+            </a>
+          </div>
         </div>
       </section>
     `;

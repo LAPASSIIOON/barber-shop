@@ -11,10 +11,11 @@ export default function Navbar() {
         </button>
         <div class="nav-links" id="navLinks" role="navigation">
           <a href="#services">Services</a>
+          <a href="#barbers">Our Barbers</a>
           <a href="#gallery">Gallery</a>
           <a href="#testimonials">Reviews</a>
           <a href="#contact">Contact</a>
-          <a href="#booking" class="nav-cta">Book Now</a>
+          <a href="#booking" class="nav-cta">Reserve Your Slot</a>
         </div>
       </div>
     </nav>
@@ -25,11 +26,8 @@ export default function Navbar() {
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
 
-    let lastScroll = 0;
     const onScroll = () => {
-      const current = window.scrollY;
-      navbar.classList.toggle('scrolled', current > 50);
-      lastScroll = current;
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });

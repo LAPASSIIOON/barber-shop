@@ -1,6 +1,8 @@
 import Navbar from '../components/Navbar.js';
 import Hero from '../components/Hero.js';
 import Services from '../components/Services.js';
+import BarberProfiles from '../components/BarberProfiles.js';
+import BusinessPain from '../components/BusinessPain.js';
 import BookingForm from '../components/BookingForm.js';
 import Gallery from '../components/Gallery.js';
 import Testimonials from '../components/Testimonials.js';
@@ -12,6 +14,8 @@ export default function Home() {
     Navbar(),
     Hero(),
     Services(),
+    BarberProfiles(),
+    BusinessPain(),
     BookingForm(),
     Gallery(),
     Testimonials(),
