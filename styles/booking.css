@@ -192,6 +192,10 @@
   line-height: 1.7;
 }
 
+[dir="rtl"] .form-group select {
+  background-position: left 14px center;
+}
+
 @media (max-width: 768px) {
   .booking-wrapper {
     grid-template-columns: 1fr;

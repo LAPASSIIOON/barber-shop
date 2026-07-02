@@ -44,6 +44,10 @@
   transform: translateX(4px);
 }
 
+[dir="rtl"] .contact-method:hover {
+  transform: translateX(-4px);
+}
+
 .contact-method-icon {
   width: 48px;
   height: 48px;

@@ -1,3 +1,5 @@
+import { t } from '../utils/i18n.js';
+
 export default function Footer() {
   const render = () => {
     const year = new Date().getFullYear();
@@ -11,11 +13,11 @@ export default function Footer() {
               Blade &amp; Co
             </div>
             <div class="footer-links">
-              <a href="#services">Services</a>
-              <a href="#gallery">Gallery</a>
-              <a href="#testimonials">Reviews</a>
-              <a href="#booking">Book Now</a>
-              <a href="#contact">Contact</a>
+              <a href="#services">${t('nav.services')}</a>
+              <a href="#gallery">${t('nav.gallery')}</a>
+              <a href="#testimonials">${t('nav.reviews')}</a>
+              <a href="#booking">${t('nav.reserveSlot')}</a>
+              <a href="#contact">${t('nav.contact')}</a>
             </div>
             <div class="footer-social">
               <a href="https://wa.me/96590000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -30,8 +32,7 @@ export default function Footer() {
             </div>
           </div>
           <div class="footer-bottom">
-            &copy; ${year} <a href="#">Blade &amp; Co</a>. All rights reserved. 
-            Crafted with precision in Kuwait.
+            &copy; ${year} <a href="#">Blade &amp; Co</a>. ${t('footer.tagline')}
           </div>
         </div>
       </footer>

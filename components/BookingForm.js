@@ -1,5 +1,6 @@
 import { services } from '../data/services.js';
 import { barbers } from '../data/barbers.js';
+import { t, tr, getLang } from '../utils/i18n.js';
 import { observeFadeElements } from '../utils/observe.js';
 
 function generateTimeSlots() {
@@ -20,20 +21,17 @@ function validateForm(fields) {
   const errors = {};
   for (const [key, value] of Object.entries(fields)) {
     if (!value.trim()) {
-      errors[key] = 'This field is required';
+      errors[key] = t('booking.required');
     }
   }
   return errors;
 }
 
-function showFieldError(id, message) {
+function showFieldError(id) {
   const field = document.getElementById(id);
   const errorEl = field?.parentElement?.querySelector('.error-text');
   if (field) field.classList.add('error');
-  if (errorEl) {
-    errorEl.textContent = message;
-    errorEl.classList.add('show');
-  }
+  if (errorEl) errorEl.classList.add('show');
 }
 
 function clearFieldError(id) {
@@ -50,11 +48,11 @@ function clearAllErrors(fields) {
 export default function BookingForm() {
   const render = () => {
     const serviceOptions = services.map(s => `
-      <option value="${s.name}" data-duration="${s.durationMinutes}">${s.name} — ${s.price}</option>
+      <option value="${tr(s, 'name')}" data-duration="${s.durationMinutes}">${tr(s, 'name')} — ${s.price}</option>
     `).join('');
 
     const barberOptions = barbers.map(b => `
-      <option value="${b.name}">${b.name} — ${b.specialty}</option>
+      <option value="${tr(b, 'name')}">${tr(b, 'name')} — ${tr(b, 'specialty')}</option>
     `).join('');
 
     const timeSlots = generateTimeSlots();
@@ -68,67 +66,51 @@ export default function BookingForm() {
       <section class="booking" id="booking">
         <div class="container">
           <div class="section-header">
-            <span class="section-label">Book Online</span>
-            <h2 class="section-title">Reserve Your Slot</h2>
-            <p class="section-subtitle">
-              Pick your barber, choose your service, and secure your time — all in under 30 seconds.
-            </p>
+            <span class="section-label">${t('booking.label')}</span>
+            <h2 class="section-title">${t('booking.title')}</h2>
+            <p class="section-subtitle">${t('booking.subtitle')}</p>
           </div>
           <div class="booking-wrapper">
             <div class="booking-info fade-in">
-              <h2>Book in 30 Seconds</h2>
-              <p>
-                Skip the wait and secure your preferred time slot. Our online
-                booking system lets you pick your barber, choose your service,
-                and confirm in seconds.
-              </p>
+              <h2>${t('booking.infoTitle')}</h2>
+              <p>${t('booking.infoText')}</p>
               <div class="booking-features">
-                <div class="booking-feature">
-                  <i class="fas fa-clock" aria-hidden="true"></i>
-                  <span>Book in under 30 seconds — no signup needed</span>
-                </div>
-                <div class="booking-feature">
-                  <i class="fas fa-user-check" aria-hidden="true"></i>
-                  <span>Pick your preferred barber from our expert team</span>
-                </div>
-                <div class="booking-feature">
-                  <i class="fas fa-bell" aria-hidden="true"></i>
-                  <span>Get SMS reminders before your appointment</span>
-                </div>
-                <div class="booking-feature">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  <span>Book 24/7 — any time, any device</span>
-                </div>
+                ${['features', 'features', 'features', 'features'].map((_, i) => `
+                  <div class="booking-feature">
+                    <i class="${['fas fa-clock', 'fas fa-user-check', 'fas fa-bell', 'fas fa-calendar-alt'][i]}" aria-hidden="true"></i>
+                    <span>${t('booking.features')[i]}</span>
+                  </div>
+                `).join('')}
               </div>
             </div>
             <div class="booking-form-container fade-in" id="bookingFormContainer">
               <div id="bookingForm">
-                <h3>Reserve Your Session</h3>
+                <h3>${t('booking.formTitle')}</h3>
                 <div class="form-group">
-                  <label for="bookName">Full Name</label>
-                  <input type="text" id="bookName" placeholder="e.g. Ahmed Al-Rashid" required autocomplete="name" />
+                  <label for="bookName">${t('booking.nameLabel')}</label>
+                  <input type="text" id="bookName" placeholder="${t('booking.namePlaceholder')}" required autocomplete="name" />
                   <span class="error-text"></span>
                 </div>
                 <div class="form-group">
-                  <label for="bookPhone">Phone Number</label>
-                  <input type="tel" id="bookPhone" placeholder="e.g. +965 9XXX XXXX" required autocomplete="tel" />
+                  <label for="bookPhone">${t('booking.phoneLabel')}</label>
+                  <input type="tel" id="bookPhone" placeholder="${t('booking.phonePlaceholder')}" required autocomplete="tel" />
                   <span class="error-text"></span>
                 </div>
                 <div class="form-group">
-                  <label for="bookBarber">Choose Your Barber</label>
+                  <label for="bookBarber">${t('booking.barberLabel')}</label>
                   <select id="bookBarber" required>
-                    <option value="">Select a barber</option>
+                    <option value="">${t('booking.barberPlaceholder')}</option>
                     ${barberOptions}
                   </select>
                   <span class="error-text"></span>
                 </div>
                 <div class="form-group">
-                  <label for="bookService">Service</label>
+                  <label for="bookService">${t('booking.serviceLabel')}</label>
                   <select id="bookService" required>
-                    <option value="">Select a service</option>
+                    <option value="">${t('booking.servicePlaceholder')}</option>
                     ${serviceOptions}
                   </select>
-                  <span class="error-text" id="serviceError"></span>
+                  <span class="error-text"></span>
                   <div class="service-duration-badge" id="serviceDurationBadge" style="display:none;">
                     <i class="far fa-clock" aria-hidden="true"></i>
                     <span id="serviceDurationText"></span>
@@ -136,14 +118,14 @@ export default function BookingForm() {
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="bookDate">Date</label>
+                    <label for="bookDate">${t('booking.dateLabel')}</label>
                     <input type="date" id="bookDate" min="${today}" required />
                     <span class="error-text"></span>
                   </div>
                   <div class="form-group">
-                    <label for="bookTime">Preferred Time</label>
+                    <label for="bookTime">${t('booking.timeLabel')}</label>
                     <select id="bookTime" required>
-                      <option value="">Select a time</option>
+                      <option value="">${t('booking.timePlaceholder')}</option>
                       ${timeOptions}
                     </select>
                     <span class="error-text"></span>
@@ -151,19 +133,16 @@ export default function BookingForm() {
                 </div>
                 <button class="btn-primary" id="bookSubmit" type="button">
                   <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                  Reserve Your Slot
+                  ${t('booking.cta')}
                 </button>
               </div>
               <div class="booking-success" id="bookingSuccess">
                 <i class="fas fa-check-circle" aria-hidden="true"></i>
-                <h3>Booking Confirmed!</h3>
-                <p>
-                  Thank you! We've received your booking request. You'll receive
-                  a confirmation call within 15 minutes.
-                </p>
+                <h3>${t('booking.successTitle')}</h3>
+                <p>${t('booking.successText')}</p>
                 <button class="btn-outline" id="bookAnother" type="button" style="margin-top:20px;">
                   <i class="fas fa-plus" aria-hidden="true"></i>
-                  Book Another Appointment
+                  ${t('booking.bookAnother')}
                 </button>
               </div>
             </div>
@@ -182,20 +161,13 @@ export default function BookingForm() {
     const durationBadge = document.getElementById('serviceDurationBadge');
     const durationText = document.getElementById('serviceDurationText');
 
-    const fieldIds = {
-      bookName: 'bookName',
-      bookPhone: 'bookPhone',
-      bookBarber: 'bookBarber',
-      bookService: 'bookService',
-      bookDate: 'bookDate',
-      bookTime: 'bookTime'
-    };
+    const fieldIds = ['bookName', 'bookPhone', 'bookBarber', 'bookService', 'bookDate', 'bookTime'];
 
     serviceSelect.addEventListener('change', () => {
       const selected = serviceSelect.options[serviceSelect.selectedIndex];
       const duration = selected?.dataset?.duration;
       if (duration) {
-        durationText.textContent = `Service duration: ${duration} minutes`;
+        durationText.textContent = `${t('booking.durationLabel')}: ${duration} ${getLang() === 'ar' ? 'دقيقة' : 'minutes'}`;
         durationBadge.style.display = 'flex';
       } else {
         durationBadge.style.display = 'none';
@@ -206,20 +178,14 @@ export default function BookingForm() {
       e.preventDefault();
       clearAllErrors(fieldIds);
 
-      const fields = {
-        bookName: document.getElementById('bookName').value,
-        bookPhone: document.getElementById('bookPhone').value,
-        bookBarber: document.getElementById('bookBarber').value,
-        bookService: document.getElementById('bookService').value,
-        bookDate: document.getElementById('bookDate').value,
-        bookTime: document.getElementById('bookTime').value
-      };
+      const fields = {};
+      fieldIds.forEach(id => { fields[id] = document.getElementById(id)?.value || ''; });
 
       const errors = validateForm(fields);
 
       if (Object.keys(errors).length > 0) {
-        for (const [key, msg] of Object.entries(errors)) {
-          showFieldError(key, msg);
+        for (const key of Object.keys(errors)) {
+          showFieldError(key);
         }
         return;
       }
@@ -229,12 +195,12 @@ export default function BookingForm() {
     });
 
     bookAnother.addEventListener('click', () => {
-      Object.keys(fieldIds).forEach(id => {
+      fieldIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
         clearFieldError(id);
       });
-      durationBadge.style.display = 'none';
+      if (durationBadge) durationBadge.style.display = 'none';
       success.classList.remove('show');
       form.style.display = 'block';
     });

@@ -95,6 +95,24 @@
   display: none !important;
 }
 
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--gray-200);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 .nav-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 25px rgba(212, 168, 83, 0.3);
@@ -144,4 +162,17 @@
     text-align: center;
     padding: 14px;
   }
+}
+
+[dir="rtl"] .nav-links {
+  right: auto;
+  left: -100%;
+  transition: left 0.35s ease;
+  border-left: none;
+  border-right: 1px solid var(--glass-border);
+}
+
+[dir="rtl"] .nav-links.open {
+  right: auto;
+  left: 0;
 }

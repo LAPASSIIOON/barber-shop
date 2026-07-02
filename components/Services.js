@@ -1,4 +1,5 @@
 import { services } from '../data/services.js';
+import { t, tr } from '../utils/i18n.js';
 import { observeFadeElements } from '../utils/observe.js';
 
 export default function Services() {
@@ -7,14 +8,14 @@ export default function Services() {
       <div class="service-card fade-in">
         <img
           src="${s.image}"
-          alt="${s.name} at Blade &amp; Co Barbershop"
+          alt="${tr(s, 'name')}"
           class="service-card-image"
           loading="lazy"
         />
         <div class="service-card-body">
           <span class="service-card-category">${s.category}</span>
-          <h3>${s.name}</h3>
-          <p>${s.description}</p>
+          <h3>${tr(s, 'name')}</h3>
+          <p>${tr(s, 'description')}</p>
           <div class="service-card-footer">
             <span class="service-price">${s.price}</span>
             <span class="service-duration">
@@ -30,21 +31,18 @@ export default function Services() {
       <section class="services" id="services">
         <div class="container">
           <div class="section-header">
-            <span class="section-label">Our Services</span>
-            <h2 class="section-title">Premium Grooming, <br>Tailored for You</h2>
-            <p class="section-subtitle">
-              From precision fades to royal shaves — every service is crafted
-              with attention to detail and the finest products.
-            </p>
+            <span class="section-label">${t('services.label')}</span>
+            <h2 class="section-title">${t('services.title')}</h2>
+            <p class="section-subtitle">${t('services.subtitle')}</p>
           </div>
           <div class="services-grid">
             ${cards}
           </div>
           <div class="services-cta fade-in">
-            <p>Ready for a fresh look?</p>
+            <p>${t('services.ctaHeadline')}</p>
             <a href="#booking" class="btn-primary">
               <i class="fas fa-calendar-check" aria-hidden="true"></i>
-              Book in 30 Seconds
+              ${t('services.ctaButton')}
             </a>
           </div>
         </div>

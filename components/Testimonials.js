@@ -1,4 +1,5 @@
 import { testimonials } from '../data/testimonials.js';
+import { t, tr } from '../utils/i18n.js';
 import { observeFadeElements } from '../utils/observe.js';
 
 function getInitials(name) {
@@ -11,17 +12,17 @@ function renderStars(rating) {
 
 export default function Testimonials() {
   const render = () => {
-    const cards = testimonials.map(t => `
+    const cards = testimonials.map(tm => `
       <div class="testimonial-card fade-in">
-        <div class="testimonial-stars" aria-label="${t.rating} out of 5 stars">
-          ${renderStars(t.rating)}
+        <div class="testimonial-stars" aria-label="${tm.rating} out of 5 stars">
+          ${renderStars(tm.rating)}
         </div>
-        <p class="testimonial-text">&ldquo;${t.text}&rdquo;</p>
+        <p class="testimonial-text">&ldquo;${tr(tm, 'text')}&rdquo;</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" aria-hidden="true">${getInitials(t.name)}</div>
+          <div class="testimonial-avatar" aria-hidden="true">${getInitials(tr(tm, 'name'))}</div>
           <div>
-            <div class="testimonial-name">${t.name}</div>
-            <div class="testimonial-location">${t.location}</div>
+            <div class="testimonial-name">${tr(tm, 'name')}</div>
+            <div class="testimonial-location">${tr(tm, 'location')}</div>
           </div>
         </div>
       </div>
@@ -31,19 +32,16 @@ export default function Testimonials() {
       <section class="testimonials" id="testimonials">
         <div class="container">
           <div class="section-header">
-            <span class="section-label">Testimonials</span>
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">
-              Don't take our word for it &mdash; hear from the gentlemen who trust us
-              with their look.
-            </p>
+            <span class="section-label">${t('testimonials.label')}</span>
+            <h2 class="section-title">${t('testimonials.title')}</h2>
+            <p class="section-subtitle">${t('testimonials.subtitle')}</p>
           </div>
           <div class="testimonials-grid">
             ${cards}
           </div>
           <div class="trust-badge">
             <i class="fas fa-check-circle" aria-hidden="true"></i>
-            Trusted by clients across Kuwait City, Salmiya &amp; Hawally
+            ${t('testimonials.trustBadge')}
           </div>
         </div>
       </section>

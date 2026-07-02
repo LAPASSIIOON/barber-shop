@@ -1,13 +1,14 @@
 import { galleryImages } from '../data/gallery.js';
+import { t, tr } from '../utils/i18n.js';
 import { observeFadeElements } from '../utils/observe.js';
 
 export default function Gallery() {
   const render = () => {
     const items = galleryImages.map(img => `
       <div class="gallery-item fade-in">
-        <img src="${img.src}" alt="${img.alt}" loading="lazy" />
+        <img src="${img.src}" alt="${tr(img, 'alt')}" loading="lazy" />
         <div class="gallery-item-overlay">
-          <span>${img.title}</span>
+          <span>${tr(img, 'title')}</span>
         </div>
       </div>
     `).join('');
@@ -16,11 +17,9 @@ export default function Gallery() {
       <section class="gallery" id="gallery">
         <div class="container">
           <div class="section-header">
-            <span class="section-label">Our Work</span>
-            <h2 class="section-title">Gallery</h2>
-            <p class="section-subtitle">
-              A look at our finest cuts, fades, and grooming transformations.
-            </p>
+            <span class="section-label">${t('gallery.label')}</span>
+            <h2 class="section-title">${t('gallery.title')}</h2>
+            <p class="section-subtitle">${t('gallery.subtitle')}</p>
           </div>
           <div class="gallery-grid">
             ${items}
