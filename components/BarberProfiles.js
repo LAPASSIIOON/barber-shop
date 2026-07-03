@@ -7,7 +7,7 @@ export default function BarberProfiles() {
     const cards = barbers.map(b => `
       <div class="barber-card fade-in">
         <div class="barber-image-wrapper">
-          <img src="${b.image}" alt="${tr(b, 'name')}" loading="lazy" />
+          <img src="${b.image}" alt="${tr(b, 'name')}" loading="lazy" referrerpolicy="no-referrer" />
         </div>
         <div class="barber-info">
           <h3>${tr(b, 'name')}</h3>
