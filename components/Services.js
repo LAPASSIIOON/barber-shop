@@ -9,14 +9,15 @@ export default function Services() {
         <div class="service-card-image-wrapper">
           <img
             src="${s.image}"
-            alt="${tr(s, 'name')}"
+            alt="${s.name}"
             class="service-card-image"
             loading="lazy"
             referrerpolicy="no-referrer"
-            onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           />
-          <div class="service-card-fallback" aria-hidden="true" style="color: var(--gold);">
-            ${s.icon}
+          <!-- Add a fallback SVG or div right after the img tag -->
+          <div class="service-card-fallback" aria-hidden="true">
+            <i class="fas fa-cut"></i>
           </div>
         </div>
         <div class="service-card-body">
