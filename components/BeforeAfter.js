@@ -11,7 +11,7 @@ export default function BeforeAfter() {
           <div class="transformation-image-wrapper">
             <img src="${tfm.before}" alt="${tr(tfm, 'title')} - ${getLang() === 'ar' ? 'قبل' : 'before'}" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'" />
             <div class="transformation-fallback" aria-hidden="true">
-              <i class="fas fa-cut"></i>
+              ${tfm.icon || '<i class="fas fa-cut"></i>'}
             </div>
             <div class="transformation-label-${getLang() === 'ar' ? 'after' : 'before'}">${getLang() === 'ar' ? 'قبل' : 'BEFORE'}</div>
           </div>
@@ -21,7 +21,7 @@ export default function BeforeAfter() {
           <div class="transformation-image-wrapper">
             <img src="${tfm.after}" alt="${tr(tfm, 'title')} - ${getLang() === 'ar' ? 'بعد' : 'after'}" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'" />
             <div class="transformation-fallback" aria-hidden="true">
-              <i class="fas fa-cut"></i>
+              ${tfm.icon || '<i class="fas fa-cut"></i>'}
             </div>
             <div class="transformation-label-${getLang() === 'ar' ? 'before' : 'after'}">${getLang() === 'ar' ? 'بعد' : 'AFTER'}</div>
           </div>

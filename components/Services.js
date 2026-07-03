@@ -15,7 +15,7 @@ export default function Services() {
             onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'"
           />
           <div class="service-card-fallback" aria-hidden="true">
-            <i class="fas fa-cut"></i>
+            ${s.icon || '<i class="fas fa-cut"></i>'}
           </div>
         </div>
         <div class="service-card-body">

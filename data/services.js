@@ -1,5 +1,3 @@
-import IMAGES from './images/service-images.js';
-
 export const services = [
   {
     id: 1,
@@ -10,8 +8,9 @@ export const services = [
     price: "KD 12",
     duration: "45 min",
     durationMinutes: 45,
-    image: IMAGES.serviceHaircut,
-    category: "haircut"
+    image: "https://images.pexels.com/photos/3998407/pexels-photo-3998407.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "haircut",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="18" cy="14" r="5.5"/><circle cx="46" cy="14" r="5.5"/><path d="M22 18 L40 46 M42 18 L24 46"/></svg>`
   },
   {
     id: 2,
@@ -22,8 +21,9 @@ export const services = [
     price: "KD 8",
     duration: "30 min",
     durationMinutes: 30,
-    image: IMAGES.serviceBeard,
-    category: "grooming"
+    image: "https://images.pexels.com/photos/7518736/pexels-photo-7518736.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "grooming",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 24 Q20 10 32 10 Q44 10 44 24 L44 34 Q44 48 32 56 Q20 48 20 34 Z"/></svg>`
   },
   {
     id: 3,
@@ -34,8 +34,9 @@ export const services = [
     price: "KD 18",
     duration: "75 min",
     durationMinutes: 75,
-    image: IMAGES.serviceCombo,
-    category: "combo"
+    image: "https://images.pexels.com/photos/7518734/pexels-photo-7518734.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "combo",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 Q12 9 22 9 Q32 9 32 20 L32 34 Q32 46 22 52 Q12 46 12 34 Z"/><path d="M36 20 L50 48" stroke-width="2.5"/><path d="M52 20 L38 48" stroke-width="2.5"/><circle cx="36" cy="12" r="4.5"/><circle cx="52" cy="12" r="4.5"/></svg>`
   },
   {
     id: 4,
@@ -46,8 +47,9 @@ export const services = [
     price: "KD 6",
     duration: "25 min",
     durationMinutes: 25,
-    image: IMAGES.serviceWash,
-    category: "treatment"
+    image: "https://images.pexels.com/photos/5152514/pexels-photo-5152514.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "treatment",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M32 6 Q18 30 18 40 A14 14 0 0 0 46 40 Q46 30 32 6 Z"/></svg>`
   },
   {
     id: 5,
@@ -58,8 +60,9 @@ export const services = [
     price: "KD 10",
     duration: "40 min",
     durationMinutes: 40,
-    image: IMAGES.serviceRoyalShave,
-    category: "grooming"
+    image: "https://images.pexels.com/photos/13058812/pexels-photo-13058812.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "grooming",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 48 L34 28 L40 34 L20 54 Z"/><path d="M34 28 L42 20" stroke-width="3"/><line x1="16" y1="50" x2="26" y2="40"/></svg>`
   },
   {
     id: 6,
@@ -70,7 +73,8 @@ export const services = [
     price: "KD 7",
     duration: "30 min",
     durationMinutes: 30,
-    image: IMAGES.serviceKids,
-    category: "haircut"
+    image: "https://images.pexels.com/photos/8867158/pexels-photo-8867158.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "haircut",
+    icon: `<svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="22" r="12"/><path d="M20 38 L18 52 L26 52 L28 44"/><path d="M44 38 L46 52 L38 52 L36 44"/></svg>`
   }
 ];
