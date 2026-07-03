@@ -6,7 +6,7 @@ export default function Gallery() {
   const render = () => {
     const items = galleryImages.map(img => `
       <div class="gallery-item fade-in">
-        <img src="${img.src}" alt="${tr(img, 'alt')}" loading="lazy" />
+        <img src="${img.src}" alt="${tr(img, 'alt')}" loading="lazy" referrerpolicy="no-referrer" />
         <div class="gallery-item-overlay">
           <span>${tr(img, 'title')}</span>
         </div>

@@ -12,10 +12,11 @@ export default function Services() {
             alt="${tr(s, 'name')}"
             class="service-card-image"
             loading="lazy"
+            referrerpolicy="no-referrer"
             onerror="this.onerror=null;this.parentElement.classList.add('img-failed');this.style.display='none'"
           />
-          <div class="service-card-fallback" aria-hidden="true">
-            ${s.icon || '<i class="fas fa-cut"></i>'}
+          <div class="service-card-fallback" aria-hidden="true" style="color: var(--gold);">
+            ${s.icon}
           </div>
         </div>
         <div class="service-card-body">
