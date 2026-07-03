@@ -15,9 +15,8 @@ export default function Services() {
             referrerpolicy="no-referrer"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           />
-          <!-- Add a fallback SVG or div right after the img tag -->
-          <div class="service-card-fallback" aria-hidden="true">
-            <i class="fas fa-cut"></i>
+          <div class="service-card-fallback" aria-hidden="true" style="color: var(--gold);">
+            ${s.icon}
           </div>
         </div>
         <div class="service-card-body">

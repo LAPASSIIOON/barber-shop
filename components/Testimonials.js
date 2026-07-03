@@ -19,7 +19,10 @@ export default function Testimonials() {
         </div>
         <p class="testimonial-text">&ldquo;${tr(tm, 'text')}&rdquo;</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" aria-hidden="true">${getInitials(tr(tm, 'name'))}</div>
+          <div class="testimonial-avatar" aria-hidden="true">
+            <img src="${tm.image}" alt="" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span style="display:none">${getInitials(tr(tm, 'name'))}</span>
+          </div>
           <div>
             <div class="testimonial-name">${tr(tm, 'name')}</div>
             <div class="testimonial-location">${tr(tm, 'location')}</div>

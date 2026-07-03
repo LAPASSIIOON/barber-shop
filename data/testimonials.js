@@ -7,7 +7,8 @@ export const testimonials = [
     textAr: "أفضل حلاق في الكويت. الاهتمام بالتفاصيل لا يضاهى. أزورهم منذ سنتين ولم أخب أبداً.",
     rating: 5,
     location: "Kuwait City",
-    locationAr: "مدينة الكويت"
+    locationAr: "مدينة الكويت",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150"
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ export const testimonials = [
     textAr: "خدمة تشذيب اللحية مستوى آخر. أخيراً وجدت مكاناً يفهم العناية العصرية. أنصح بشدة بالباقة المشتركة.",
     rating: 5,
     location: "Salmiya",
-    locationAr: "السالمية"
+    locationAr: "السالمية",
+    image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=150"
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ export const testimonials = [
     textAr: "تجربة فاخرة من لحظة الدخول. المنشفة الساخنة وتدليك فروة الرأس يستحقان كل فلس.",
     rating: 5,
     location: "Hawally",
-    locationAr: "حولي"
+    locationAr: "حولي",
+    image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150"
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ export const testimonials = [
     textAr: "الحجز سلس ودائماً يحترمون وقتك. تدخل بمظهر متعب وتخرج وكأنك بمليون دولار.",
     rating: 5,
     location: "Ahmadi",
-    locationAr: "الأحمدي"
+    locationAr: "الأحمدي",
+    image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150"
   }
 ];
