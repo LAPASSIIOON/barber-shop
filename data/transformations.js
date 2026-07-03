@@ -1,4 +1,4 @@
-import IMAGES from './service-images.js';
+import TFM_IMAGES from './images/transformation-images.js';
 
 export const transformations = [
   {
@@ -7,7 +7,8 @@ export const transformations = [
     titleAr: "تدرج كلاسيكي",
     result: "Sharp skin fade with textured top",
     resultAr: "تدرج حاد مع قمة مدرجة",
-    image: IMAGES.transformationFade
+    before: TFM_IMAGES.fade.before,
+    after: TFM_IMAGES.fade.after
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const transformations = [
     titleAr: "إعادة تشكيل لحية",
     result: "From patchy stubble to sculpted beard",
     resultAr: "من لحية خفيفة إلى لحية مهذبة",
-    image: IMAGES.transformationBeard
+    before: TFM_IMAGES.beard.before,
+    after: TFM_IMAGES.beard.after
   },
   {
     id: 3,
@@ -23,7 +25,8 @@ export const transformations = [
     titleAr: "تصفيفة بومبادور",
     result: "Voluminous pompadour with clean tapering",
     resultAr: "بومبادور كثيف مع تدرج نظيف",
-    image: IMAGES.transformationPompadour
+    before: TFM_IMAGES.pompadour.before,
+    after: TFM_IMAGES.pompadour.after
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ export const transformations = [
     titleAr: "حلاقة ملكية",
     result: "Smooth finish with hot towel ritual",
     resultAr: "تشطيب ناعم مع طقوس المنشفة الساخنة",
-    image: IMAGES.transformationRoyalShave
+    before: TFM_IMAGES.shave.before,
+    after: TFM_IMAGES.shave.after
   }
 ];

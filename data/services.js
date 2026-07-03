@@ -1,4 +1,4 @@
-import IMAGES from './service-images.js';
+import IMAGES from './images/service-images.js';
 
 export const services = [
   {

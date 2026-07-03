@@ -1,11 +1,11 @@
 import { t } from '../utils/i18n.js';
-import IMAGES from '../data/service-images.js';
+import HERO_IMAGES from '../data/images/hero-images.js';
 
 export default function Hero() {
   const render = () => `
     <section class="hero" id="hero">
       <img
-        src="${IMAGES.heroBg}"
+        src="${HERO_IMAGES.bg}"
         alt="Luxury barber shop interior"
         class="hero-bg"
         loading="eager"

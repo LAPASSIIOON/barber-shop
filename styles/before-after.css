@@ -10,8 +10,8 @@
 
 .transformations-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   margin-top: 48px;
 }
 
@@ -44,10 +44,18 @@
   font-weight: 600;
 }
 
+.transformation-images {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
 .transformation-image-wrapper {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
 }
 
 .transformation-image-wrapper img {
@@ -64,7 +72,7 @@
   inset: 0;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--gray-600);
   background: var(--gray-900);
 }
@@ -74,39 +82,37 @@
 }
 
 .transformation-card:hover .transformation-image-wrapper img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-.transformation-overlay {
+.transformation-arrow {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.transformation-label-before,
+.transformation-label-after {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 14px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-}
-
-.transformation-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.7rem;
+  top: 6px;
+  font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
-.transformation-before {
+.transformation-label-before {
+  left: 6px;
+  background: rgba(0, 0, 0, 0.7);
   color: var(--gray-400);
 }
 
-.transformation-after {
-  color: var(--gold);
-}
-
-.transformation-label i {
-  color: var(--cyan);
-  font-size: 0.8rem;
+.transformation-label-after {
+  right: 6px;
+  background: var(--gold);
+  color: var(--black);
 }
 
 .transformation-body {
@@ -126,15 +132,15 @@
   line-height: 1.4;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .transformations-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 500px) {
-  .transformations-grid {
-    grid-template-columns: 1fr;
+  .transformation-images {
+    flex-direction: column;
   }
 }
 
@@ -143,6 +149,16 @@
   left: 12px;
 }
 
-[dir="rtl"] .transformation-label i {
+[dir="rtl"] .transformation-arrow i {
   transform: scaleX(-1);
+}
+
+[dir="rtl"] .transformation-label-before {
+  left: auto;
+  right: 6px;
+}
+
+[dir="rtl"] .transformation-label-after {
+  right: auto;
+  left: 6px;
 }
